@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Portfolio & Delegate CV | #ISRM26 Milan</title>
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#050D1A',
+              900: '#0A192F',
+              800: '#112240',
+              700: '#1D3557',
+            },
+            electric: {
+              400: '#38BDF8',
+              500: '#00A8E8',
+              600: '#0284C7',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom styling for inline editing, biomechanical wave patterns, and clean print layout */
+    [contenteditable="true"] {
+      transition: all 0.2s ease;
+      border-radius: 6px;
+    }
+    .edit-mode-active [contenteditable="true"] {
+      outline: 1.5px dashed rgba(0, 168, 232, 0.65);
+      background-color: rgba(0, 168, 232, 0.06);
+      padding: 2px 6px;
+    }
+    .edit-mode-active [contenteditable="true"]:focus {
+      outline: 2px solid #00A8E8;
+      background-color: rgba(0, 168, 232, 0.12);
+    }
+    .hero-bg-grid {
+      background-image: radial-gradient(rgba(0, 168, 232, 0.14) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .region-hotspot {
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+    .region-hotspot:hover {
+      transform: scale(1.12);
+    }
+    .region-hotspot.active-hotspot circle.pulse-ring {
+      stroke: #00A8E8;
+      stroke-width: 2.5;
+      opacity: 1;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        padding-top: 0 !important;
+      }
+      .print-shadow-none {
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+      [contenteditable="true"] {
+        outline: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .region-card.hidden,
+      .isrm-card.hidden {
+        display: block !important;
+      }
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pt-16 sm:pt-14">
+
+  <!-- Interactive Floating Control & Customization Toolbar -->
+  <div id="control-bar" class="no-print fixed top-0 left-0 right-0 z-50 bg-navy-950/95 backdrop-blur-md border-b border-navy-700 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex h-2.5 w-2.5 rounded-full bg-electric-500 animate-pulse"></span>
+        <span class="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
+          #ISRM26 Executive Delegate Portfolio
+        </span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Networking QR / V-Card Modal Button -->
+        <button id="open-vcard-btn" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-electric-500 hover:bg-electric-600 text-white shadow-sm transition cursor-pointer">
+          <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 14.625h1.5v1.5h-1.5v-1.5zm3 0h1.5v1.5H16.5v-1.5zm1.5 1.5h1.5v1.5H18v-1.5zm-4.5 1.5h1.5v1.5h-1.5v-1.5zm3 1.5h1.5v1.5H16.5v-1.5z" />
+          </svg>
+          <span>Delegate Pass</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Banner -->
+  <div id="toast-msg" class="no-print fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 bg-navy-900 text-white border border-electric-500/50 px-4 py-3 rounded-xl shadow-2xl text-sm font-medium">
+    <span class="h-2 w-2 rounded-full bg-electric-400"></span>
+    <span id="toast-text">Notification</span>
+  </div>
+
+  <!-- HERO / DELEGATE HEADER -->
+  <header class="relative overflow-hidden bg-navy-900 text-white hero-bg-grid border-b border-navy-700">
+    <!-- Subtle Biomechanical Kinetic Wave SVG Background -->
+    <svg class="absolute right-0 top-0 h-full w-auto opacity-15 pointer-events-none" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="430" cy="200" r="165" stroke="#00A8E8" stroke-width="2" />
+      <circle cx="430" cy="200" r="120" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="6 6" />
+      <path d="M230 140C310 90 520 90 590 150" stroke="#00A8E8" stroke-width="3" stroke-linecap="round" />
+      <path d="M210 215C300 175 510 175 600 225" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M245 285C325 255 500 255 575 295" stroke="#00A8E8" stroke-width="2" stroke-linecap="round" />
+      <!-- Spine/Kinematic Node Axis -->
+      <line x1="430" y1="65" x2="430" y2="335" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+      <circle cx="430" cy="110" r="5" fill="#00A8E8" />
+      <circle cx="430" cy="155" r="5" fill="#00A8E8" />
+      <circle cx="430" cy="200" r="6" fill="#38BDF8" />
+      <circle cx="430" cy="245" r="5" fill="#00A8E8" />
+      <circle cx="430" cy="290" r="5" fill="#00A8E8" />
+    </svg>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <!-- Top Official Conference Badge -->
+      <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-800/90 border border-electric-500/40 text-xs sm:text-sm mb-6 shadow-sm">
+        <span class="px-2 py-0.5 rounded-full bg-electric-500 text-white font-bold tracking-wider text-[11px]">#ISRM26 DELEGATE</span>
+        <span class="text-slate-200 font-medium">3rd International Sports Rehab Meeting</span>
+        <span class="text-electric-400 hidden sm:inline">•</span>
+        <span class="text-slate-300">Innovation Campus, Milan, Italy • Nov 21–22, 2026</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Primary Identity & Executive Bio -->
+        <div class="lg:col-span-8 space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+            <!-- Delegate Portrait Photo -->
+            <div class="relative shrink-0 self-start">
+              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden ring-2 ring-electric-400/80 shadow-2xl bg-navy-800">
+                <img src="delegate-photo.jpg" alt="Delegate Portrait" class="w-full h-full object-cover object-top" />
+              </div>
+              <span class="absolute -bottom-2 -right-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-electric-500 text-white text-[10px] font-bold tracking-wider shadow-md border border-navy-900">
+                PT, DPT
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="inline-block text-xs font-semibold uppercase tracking-widest text-electric-400">
+                <span contenteditable="true">[Clinic / Sports Medicine Center / Federation Affiliation]</span>
+              </div>
+
+              <h1 id="hero-name" contenteditable="true" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Dr. [Full Name], PT, DPT
+              </h1>
+
+              <p id="hero-title" contenteditable="true" class="text-base sm:text-lg font-semibold text-electric-400">
+                Senior Sports Injury Physical Therapist | Biomechanical Movement Specialist | 25+ Years Clinical Leadership
+              </p>
+            </div>
+          </div>
+
+          <p contenteditable="true" class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+            Doctor of Physical Therapy with over 25 years of specialized expertise in athletic injury prevention, acute-to-end-stage sports rehabilitation, and quantitative biomechanical movement analysis. Dedicated to bridging objective laboratory kinematics, neuromuscular profiling, and Key Performance Indicators (KPIs) to optimize safe Return-to-Sport (RTS) outcomes for elite, Olympic, and competitive athletes.
+          </p>
+
+          <!-- Quick Contact Pills -->
+          <div class="pt-2 flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-200">
+            <div class="inline-flex items-center gap-2 bg-navy-800/80 border border-navy-700 px-3 py-1.5 rounded-xl">
+              <svg class="w-4 h-4 text-electric-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+              <span id="hero-location" contenteditable="true">[City, Country]</span>
+            </div>
+
+            <div class="inline-flex items-center gap-2 bg-navy-800/80 border border-navy-700 px-3 py-1.5 rounded-xl">
+              <svg class="w-4 h-4 text-electric-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <span id="hero-email" contenteditable="true">Mgamal987.mg@gmail.com</span>
+            </div>
+
+            <div class="inline-flex items-center gap-2 bg-navy-800/80 border border-navy-700 px-3 py-1.5 rounded-xl">
+              <svg class="w-4 h-4 text-electric-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              <span id="hero-phone" contenteditable="true">01116699954</span>
+            </div>
+
+            <div class="inline-flex items-center gap-2 bg-navy-800/80 border border-navy-700 px-3 py-1.5 rounded-xl">
+              <svg class="w-4 h-4 text-electric-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+              </svg>
+              <span id="hero-linkedin" contenteditable="true">[linkedin.com/in/profile | ORCID]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conference Focus Card (Right Side) -->
+        <div class="lg:col-span-4 bg-navy-800/90 backdrop-blur border border-electric-500/30 rounded-2xl p-5 shadow-xl">
+          <div class="flex items-center justify-between border-b border-navy-700 pb-3 mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-electric-400">Conference Theme</span>
+            <span class="text-xs font-semibold text-slate-300">Milan, Italy</span>
+          </div>
+          <h2 class="text-base font-bold text-white leading-snug mb-2">
+            "Key Performance Indicators: From Injury to RTS — The Full Practical Guide"
+          </h2>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Attending #ISRM26 to collaborate with international orthopaedic surgeons, sports physicians, and performance scientists on objective Return-to-Play criteria, biomechanics, and injury risk mitigation.
+          </p>
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center justify-between bg-navy-900/80 px-3 py-2 rounded-xl border border-navy-700">
+              <span class="text-slate-400">Primary Track</span>
+              <span class="font-semibold text-electric-400" contenteditable="true">RTS KPIs &amp; Biomechanics</span>
+            </div>
+            <div class="flex items-center justify-between bg-navy-900/80 px-3 py-2 rounded-xl border border-navy-700">
+              <span class="text-slate-400">Availability</span>
+              <span class="font-semibold text-emerald-400" contenteditable="true">Open for Clinical / Club Consult</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Metrics Strip -->
+      <div class="mt-8 pt-6 border-t border-navy-800 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-navy-800/60 border border-navy-700/80 rounded-2xl p-4 flex items-start justify-between gap-3">
+          <div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-electric-400" contenteditable="true">25+ Years</div>
+            <div class="text-xs sm:text-sm font-medium text-slate-300 mt-1" contenteditable="true">Clinical Sports Rehab Experience</div>
+          </div>
+          <div class="w-9 h-9 rounded-xl bg-navy-900/90 border border-electric-500/30 flex items-center justify-center shrink-0 text-electric-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+        <div class="bg-navy-800/60 border border-navy-700/80 rounded-2xl p-4 flex items-start justify-between gap-3">
+          <div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white" contenteditable="true">PT, DPT</div>
+            <div class="text-xs sm:text-sm font-medium text-slate-300 mt-1" contenteditable="true">Doctor of Physical Therapy</div>
+          </div>
+          <div class="w-9 h-9 rounded-xl bg-navy-900/90 border border-electric-500/30 flex items-center justify-center shrink-0 text-electric-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
+            </svg>
+          </div>
+        </div>
+        <div class="bg-navy-800/60 border border-navy-700/80 rounded-2xl p-4 flex items-start justify-between gap-3">
+          <div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-electric-400" contenteditable="true">3D / EMG</div>
+            <div class="text-xs sm:text-sm font-medium text-slate-300 mt-1" contenteditable="true">Biomechanical &amp; Kinetic Profiling</div>
+          </div>
+          <div class="w-9 h-9 rounded-xl bg-navy-900/90 border border-electric-500/30 flex items-center justify-center shrink-0 text-electric-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+            </svg>
+          </div>
+        </div>
+        <div class="bg-navy-800/60 border border-navy-700/80 rounded-2xl p-4 flex items-start justify-between gap-3">
+          <div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white" contenteditable="true">6 Regions</div>
+            <div class="text-xs sm:text-sm font-medium text-slate-300 mt-1" contenteditable="true">Full-Spectrum Regional RTS Guidelines</div>
+          </div>
+          <div class="w-9 h-9 rounded-xl bg-navy-900/90 border border-electric-500/30 flex items-center justify-center shrink-0 text-electric-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PORTFOLIO CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+    <!-- SECTION 1: CORE CLINICAL & BIOMECHANICAL PILLARS -->
+    <section id="pillars" class="space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-electric-600">Clinical Specialization</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-1">Core Competencies &amp; Practice Pillars</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500">Evidence-led clinical prevention, rehabilitation &amp; movement diagnostics</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Pillar 1 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-electric-500/60 hover:shadow-md transition flex flex-col justify-between print-shadow-none">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-navy-900 text-electric-400 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <h3 contenteditable="true" class="text-lg font-bold text-navy-900 mb-2">
+              1. Injury Prevention &amp; Risk Profiling
+            </h3>
+            <p contenteditable="true" class="text-sm text-slate-600 leading-relaxed mb-4">
+              Evidence-based pre-season and in-season screening systems designed to identify modifiable mechanical and neuromuscular risk factors before tissue breakdown occurs.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 border-t border-slate-100 pt-4">
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Primary &amp; secondary ACL risk reduction frameworks</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Eccentric hamstring, adductor &amp; calf-Achilles load management</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Overhead shoulder &amp; chronic ankle instability mitigation</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Acute-to-chronic workload ratio &amp; fatigue monitoring</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Pillar 2 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-electric-500/60 hover:shadow-md transition flex flex-col justify-between print-shadow-none">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-electric-500 text-white flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+            </div>
+            <h3 contenteditable="true" class="text-lg font-bold text-navy-900 mb-2">
+              2. Sports Rehabilitation &amp; RTS KPIs
+            </h3>
+            <p contenteditable="true" class="text-sm text-slate-600 leading-relaxed mb-4">
+              Criteria-driven, milestone-based rehabilitation bridging early post-operative/acute protection with high-velocity field reconditioning and objective Return-to-Performance clearance.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 border-t border-slate-100 pt-4">
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Post-op ACLR, lateral extra-articular tenodesis &amp; meniscus rehab</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>T-junction hamstring, groin &amp; Achilles tendon reconditioning</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Blood Flow Restriction (BFR) &amp; strength-speed profiling</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Shared decision-making with surgeons, physicians &amp; S&amp;C staff</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Pillar 3 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-electric-500/60 hover:shadow-md transition flex flex-col justify-between print-shadow-none">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-navy-900 text-electric-400 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+              </svg>
+            </div>
+            <h3 contenteditable="true" class="text-lg font-bold text-navy-900 mb-2">
+              3. Biomechanical Movement Analysis
+            </h3>
+            <p contenteditable="true" class="text-sm text-slate-600 leading-relaxed mb-4">
+              Quantitative assessment of human locomotion, multi-directional deceleration, and sport-specific kinematics to eliminate compensatory movement strategies prior to RTS.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 border-t border-slate-100 pt-4">
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>2D/3D kinematic &amp; kinetic gait, sprint &amp; cutting analysis</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Dual force-plate jump-landing, RFD &amp; limb symmetry testing</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Surface EMG neuromuscular timing &amp; activation diagnostics</span>
+            </li>
+            <li contenteditable="true" class="flex items-start gap-2">
+              <span class="text-electric-500 font-bold">•</span>
+              <span>Isokinetic &amp; handheld dynamometry torque-angle profiling</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CLINICAL GUIDELINES & RTS KPI PROGRESSION DIAGRAMS -->
+    <section id="guidelines" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 print-shadow-none space-y-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+        <div>
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-electric-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+            </svg>
+            Evidence-Based Clinical Governance
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-1">
+            Clinical Guidelines &amp; Return-to-Sport (RTS) KPI Continuum
+          </h2>
+          <p contenteditable="true" class="text-sm text-slate-600 mt-1 max-w-3xl">
+            Visual decision-making architecture transitioning injured athletes from biological tissue protection to objective performance clearance using criteria-based gatekeepers rather than arbitrary timelines.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold bg-slate-100 text-navy-900 px-3.5 py-2 rounded-xl border border-slate-200 shrink-0">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          <span>Criteria-Based Gatekeepers</span>
+        </div>
+      </div>
+
+      <!-- Visual Diagram 1: 5-Phase RTS Progression Pipeline SVG -->
+      <div class="rounded-2xl bg-navy-950 text-white p-5 sm:p-6 border border-navy-800 overflow-x-auto">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-electric-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+            </svg>
+            <span>Figure 1: Five-Phase RTS Guideline Flowchart &amp; Objective Gatekeepers</span>
+          </h3>
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-electric-400 bg-navy-900 px-2.5 py-1 rounded-full border border-electric-500/30">
+            Hold / Modify / Clear Protocol
+          </span>
+        </div>
+
+        <svg viewBox="0 0 1000 220" class="w-full min-w-[740px] h-auto" role="img" aria-label="Five-phase Return to Sport clinical guideline flowchart">
+          <defs>
+            <linearGradient id="rtsFlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#38BDF8" />
+              <stop offset="50%" stop-color="#00A8E8" />
+              <stop offset="100%" stop-color="#10B981" />
+            </linearGradient>
+            <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#38BDF8" />
+            </marker>
+          </defs>
+
+          <!-- Background Spine Connector Line -->
+          <line x1="90" y1="78" x2="910" y2="78" stroke="url(#rtsFlowGrad)" stroke-width="4" stroke-dasharray="6 4" />
+
+          <!-- Phase 1 -->
+          <g transform="translate(15, 22)">
+            <rect x="0" y="0" width="166" height="114" rx="14" fill="#112240" stroke="#1D3557" stroke-width="1.5" />
+            <circle cx="83" cy="0" r="14" fill="#0A192F" stroke="#38BDF8" stroke-width="2" />
+            <text x="83" y="4" text-anchor="middle" fill="#38BDF8" font-size="11" font-weight="800">P1</text>
+            <text x="83" y="32" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Acute &amp; Protection</text>
+            <text x="83" y="50" text-anchor="middle" fill="#94A3B8" font-size="10">Effusion &amp; Pain Control</text>
+            <line x1="18" y1="62" x2="148" y2="62" stroke="#1D3557" stroke-width="1" />
+            <text x="83" y="79" text-anchor="middle" fill="#38BDF8" font-size="10" font-weight="600">KPI: Quiet Joint &amp; Full Ext</text>
+            <text x="83" y="96" text-anchor="middle" fill="#CBD5E1" font-size="9.5">Pain ≤ 2/10 • Quad Activation</text>
+          </g>
+
+          <!-- Gate 1-2 -->
+          <line x1="181" y1="78" x2="213" y2="78" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrowBlue)" />
+          <polygon points="197,65 208,78 197,91 186,78" fill="#0A192F" stroke="#38BDF8" stroke-width="1.5" />
+
+          <!-- Phase 2 -->
+          <g transform="translate(216, 22)">
+            <rect x="0" y="0" width="166" height="114" rx="14" fill="#112240" stroke="#1D3557" stroke-width="1.5" />
+            <circle cx="83" cy="0" r="14" fill="#0A192F" stroke="#38BDF8" stroke-width="2" />
+            <text x="83" y="4" text-anchor="middle" fill="#38BDF8" font-size="11" font-weight="800">P2</text>
+            <text x="83" y="32" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Strength &amp; Capacity</text>
+            <text x="83" y="50" text-anchor="middle" fill="#94A3B8" font-size="10">Hypertrophy &amp; Tissue Load</text>
+            <line x1="18" y1="62" x2="148" y2="62" stroke="#1D3557" stroke-width="1" />
+            <text x="83" y="79" text-anchor="middle" fill="#38BDF8" font-size="10" font-weight="600">KPI: LSI ≥ 75% + BFR</text>
+            <text x="83" y="96" text-anchor="middle" fill="#CBD5E1" font-size="9.5">Eccentric • Isometric Torque</text>
+          </g>
+
+          <!-- Gate 2-3 -->
+          <line x1="382" y1="78" x2="414" y2="78" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrowBlue)" />
+          <polygon points="398,65 409,78 398,91 387,78" fill="#0A192F" stroke="#38BDF8" stroke-width="1.5" />
+
+          <!-- Phase 3 -->
+          <g transform="translate(417, 22)">
+            <rect x="0" y="0" width="166" height="114" rx="14" fill="#112240" stroke="#00A8E8" stroke-width="1.8" />
+            <circle cx="83" cy="0" r="14" fill="#00A8E8" stroke="#FFFFFF" stroke-width="1.5" />
+            <text x="83" y="4" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">P3</text>
+            <text x="83" y="32" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Neuro &amp; Biomechanics</text>
+            <text x="83" y="50" text-anchor="middle" fill="#94A3B8" font-size="10">Kinematics, Plyo &amp; RFD</text>
+            <line x1="18" y1="62" x2="148" y2="62" stroke="#1D3557" stroke-width="1" />
+            <text x="83" y="79" text-anchor="middle" fill="#38BDF8" font-size="10" font-weight="600">KPI: LSI ≥ 85% • Valgus &lt; 5°</text>
+            <text x="83" y="96" text-anchor="middle" fill="#CBD5E1" font-size="9.5">3D Landing • EMG Timing</text>
+          </g>
+
+          <!-- Gate 3-4 -->
+          <line x1="583" y1="78" x2="615" y2="78" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrowBlue)" />
+          <polygon points="599,65 610,78 599,91 588,78" fill="#0A192F" stroke="#00A8E8" stroke-width="1.5" />
+
+          <!-- Phase 4 -->
+          <g transform="translate(618, 22)">
+            <rect x="0" y="0" width="166" height="114" rx="14" fill="#112240" stroke="#00A8E8" stroke-width="1.8" />
+            <circle cx="83" cy="0" r="14" fill="#00A8E8" stroke="#FFFFFF" stroke-width="1.5" />
+            <text x="83" y="4" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">P4</text>
+            <text x="83" y="32" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">On-Field Reconditioning</text>
+            <text x="83" y="50" text-anchor="middle" fill="#94A3B8" font-size="10">Sprint, Cut &amp; Reactive Chaos</text>
+            <line x1="18" y1="62" x2="148" y2="62" stroke="#1D3557" stroke-width="1" />
+            <text x="83" y="79" text-anchor="middle" fill="#38BDF8" font-size="10" font-weight="600">KPI: ACWR 0.8–1.3 • GPS</text>
+            <text x="83" y="96" text-anchor="middle" fill="#CBD5E1" font-size="9.5">Hop LSI ≥ 90% • Decel Load</text>
+          </g>
+
+          <!-- Gate 4-5 -->
+          <line x1="784" y1="78" x2="816" y2="78" stroke="#10B981" stroke-width="2" marker-end="url(#arrowBlue)" />
+          <polygon points="800,65 811,78 800,91 789,78" fill="#0A192F" stroke="#10B981" stroke-width="1.5" />
+
+          <!-- Phase 5 -->
+          <g transform="translate(819, 22)">
+            <rect x="0" y="0" width="166" height="114" rx="14" fill="#064E3B" fill-opacity="0.45" stroke="#10B981" stroke-width="2" />
+            <circle cx="83" cy="0" r="14" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5" />
+            <text x="83" y="4" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">P5</text>
+            <text x="83" y="32" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700">Return to Performance</text>
+            <text x="83" y="50" text-anchor="middle" fill="#A7F3D0" font-size="10">Competition &amp; Prevention</text>
+            <line x1="18" y1="62" x2="148" y2="62" stroke="#10B981" stroke-opacity="0.4" stroke-width="1" />
+            <text x="83" y="79" text-anchor="middle" fill="#34D399" font-size="10" font-weight="700">KPI: LSI ≥ 90–95% + Psych</text>
+            <text x="83" y="96" text-anchor="middle" fill="#ECFDF5" font-size="9.5">ACL-RSI ≥ 75 • MDT Sign-Off</text>
+          </g>
+
+          <!-- Bottom Legend & Feedback Loop -->
+          <path d="M 902 142 L 902 175 L 98 175 L 98 142" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrowBlue)" />
+          <rect x="330" y="162" width="340" height="24" rx="12" fill="#0A192F" stroke="#334155" stroke-width="1" />
+          <text x="500" y="178" text-anchor="middle" fill="#CBD5E1" font-size="10.5" font-weight="600">
+            Continuous Feedback Loop: Load-Response &amp; Secondary Injury Surveillance
+          </text>
+          <text x="500" y="207" text-anchor="middle" fill="#64748B" font-size="10">
+            ◆ Diamond Gatekeepers = Objective Pass/Fail Exit Criteria Required Before Advancing Phase
+          </text>
+        </svg>
+      </div>
+
+      <!-- Visual Diagrams Grid: 3 Biomechanical & Load Guidelines -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Diagram A: Kinematic Alignment (Dynamic Valgus vs Optimal) -->
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Guideline Diagram A</span>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-navy-900 text-white">Kinematics</span>
+            </div>
+            <h3 contenteditable="true" class="text-base font-bold text-navy-900">
+              Frontal-Plane Landing &amp; Valgus Control
+            </h3>
+            <p contenteditable="true" class="text-xs text-slate-600 mt-1 leading-relaxed">
+              Objective 2D/3D screening guideline verifying hip-knee-ankle alignment during single-leg deceleration and drop-jump tasks.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 p-3">
+            <svg viewBox="0 0 320 175" class="w-full h-auto" role="img" aria-label="Dynamic knee valgus vs optimal alignment diagram">
+              <!-- Left: High Risk Dynamic Valgus -->
+              <rect x="8" y="8" width="144" height="159" rx="10" fill="#FEF2F2" stroke="#FECACA" />
+              <text x="80" y="25" text-anchor="middle" fill="#B91C1C" font-size="10" font-weight="800">HIGH RISK: VALGUS</text>
+              <!-- Pelvis tilted -->
+              <line x1="48" y1="45" x2="108" y2="54" stroke="#64748B" stroke-width="4" stroke-linecap="round" />
+              <!-- Hip to Knee (Medial collapse) -->
+              <line x1="60" y1="47" x2="90" y2="96" stroke="#DC2626" stroke-width="5" stroke-linecap="round" />
+              <!-- Knee to Ankle -->
+              <line x1="90" y1="96" x2="72" y2="145" stroke="#DC2626" stroke-width="5" stroke-linecap="round" />
+              <!-- Reference Plumb Line -->
+              <line x1="72" y1="42" x2="72" y2="148" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" />
+              <!-- Joint Nodes -->
+              <circle cx="60" cy="47" r="4.5" fill="#0A192F" />
+              <circle cx="90" cy="96" r="5.5" fill="#DC2626" />
+              <circle cx="72" cy="145" r="4.5" fill="#0A192F" />
+              <!-- Angle Callout -->
+              <path d="M 96 96 L 116 96" stroke="#DC2626" stroke-width="1.5" />
+              <text x="118" y="93" fill="#B91C1C" font-size="8.5" font-weight="700">FPPA</text>
+              <text x="118" y="103" fill="#B91C1C" font-size="8.5" font-weight="700">&gt; 12°</text>
+              <text x="80" y="160" text-anchor="middle" fill="#991B1B" font-size="8.5">Pelvic Drop + IR Torque</text>
+
+              <!-- Right: Target Alignment -->
+              <rect x="168" y="8" width="144" height="159" rx="10" fill="#ECFDF5" stroke="#A7F3D0" />
+              <text x="240" y="25" text-anchor="middle" fill="#047857" font-size="10" font-weight="800">TARGET: ALIGNED</text>
+              <!-- Level Pelvis -->
+              <line x1="210" y1="47" x2="270" y2="47" stroke="#64748B" stroke-width="4" stroke-linecap="round" />
+              <!-- Hip to Knee to Ankle stacked -->
+              <line x1="240" y1="47" x2="240" y2="96" stroke="#059669" stroke-width="5" stroke-linecap="round" />
+              <line x1="240" y1="96" x2="240" y2="145" stroke="#059669" stroke-width="5" stroke-linecap="round" />
+              <!-- Reference Plumb Line -->
+              <line x1="240" y1="38" x2="240" y2="148" stroke="#10B981" stroke-width="1.2" stroke-dasharray="3 3" />
+              <!-- Joint Nodes -->
+              <circle cx="240" cy="47" r="4.5" fill="#0A192F" />
+              <circle cx="240" cy="96" r="5.5" fill="#00A8E8" />
+              <circle cx="240" cy="145" r="4.5" fill="#0A192F" />
+              <text x="255" y="93" fill="#047857" font-size="8.5" font-weight="700">FPPA</text>
+              <text x="255" y="103" fill="#047857" font-size="8.5" font-weight="700">&lt; 5°</text>
+              <text x="240" y="160" text-anchor="middle" fill="#065F46" font-size="8.5">Neutral Hip-Knee-Ankle</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Diagram B: Force-Time Curve, RFD & LSI Symmetry -->
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Guideline Diagram B</span>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-electric-500 text-white">Force-Plate KPIs</span>
+            </div>
+            <h3 contenteditable="true" class="text-base font-bold text-navy-900">
+              Rate of Force Development (RFD) &amp; LSI ≥ 90%
+            </h3>
+            <p contenteditable="true" class="text-xs text-slate-600 mt-1 leading-relaxed">
+              Evaluating explosive force in the first 0–200 ms alongside peak torque so injured limbs match rapid sport-reactive demands.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 p-3">
+            <svg viewBox="0 0 320 175" class="w-full h-auto" role="img" aria-label="Force-time curve comparing RFD and Limb Symmetry Index">
+              <!-- Axes -->
+              <line x1="38" y1="20" x2="38" y2="145" stroke="#334155" stroke-width="1.5" />
+              <line x1="38" y1="145" x2="302" y2="145" stroke="#334155" stroke-width="1.5" />
+              <!-- 0-200ms RFD Window Shading -->
+              <rect x="39" y="24" width="88" height="120" fill="#00A8E8" fill-opacity="0.09" />
+              <line x1="127" y1="24" x2="127" y2="145" stroke="#00A8E8" stroke-width="1" stroke-dasharray="3 3" />
+              <text x="83" y="36" text-anchor="middle" fill="#0284C7" font-size="8.5" font-weight="700">0–200 ms RFD</text>
+
+              <!-- 90% LSI Target Band -->
+              <rect x="39" y="42" width="260" height="16" fill="#10B981" fill-opacity="0.14" />
+              <line x1="39" y1="50" x2="299" y2="50" stroke="#10B981" stroke-width="1.2" stroke-dasharray="4 3" />
+              <text x="242" y="47" fill="#047857" font-size="8.5" font-weight="700">LSI ≥ 90% Zone</text>
+
+              <!-- Uninjured Limb Curve (Navy) -->
+              <path d="M 38 144 Q 68 55 128 40 T 285 38" fill="none" stroke="#0A192F" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Injured Cleared Curve (Electric Blue) -->
+              <path d="M 38 144 Q 76 66 138 50 T 285 47" fill="none" stroke="#00A8E8" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Deficient / Early Rehab Curve (Dashed Amber) -->
+              <path d="M 38 144 Q 105 112 175 94 T 285 88" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" />
+
+              <!-- Labels -->
+              <text x="18" y="85" text-anchor="middle" fill="#475569" font-size="9" font-weight="600" transform="rotate(-90 18 85)">Force (N)</text>
+              <text x="170" y="163" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">Time (ms)</text>
+
+              <!-- Legend -->
+              <circle cx="155" cy="115" r="3.5" fill="#0A192F" />
+              <text x="163" y="118" fill="#0A192F" font-size="8.5" font-weight="600">Uninjured Baseline</text>
+              <circle cx="155" cy="128" r="3.5" fill="#00A8E8" />
+              <text x="163" y="131" fill="#0284C7" font-size="8.5" font-weight="600">RTS Cleared (≥90%)</text>
+              <circle cx="155" cy="140" r="3.5" fill="#F59E0B" />
+              <text x="163" y="143" fill="#B45309" font-size="8.5" font-weight="600">RFD Deficit (Hold)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Diagram C: Workload Envelope & ACWR Risk Curve -->
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Guideline Diagram C</span>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-navy-900 text-white">Load Envelope</span>
+            </div>
+            <h3 contenteditable="true" class="text-base font-bold text-navy-900">
+              ACWR &amp; Progressive Tissue Load Envelope
+            </h3>
+            <p contenteditable="true" class="text-xs text-slate-600 mt-1 leading-relaxed">
+              Balancing acute match/training spikes against chronic tissue capacity (0.8–1.3 sweet spot) to minimize soft-tissue reinjury.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 p-3">
+            <svg viewBox="0 0 320 175" class="w-full h-auto" role="img" aria-label="Acute to chronic workload ratio risk envelope diagram">
+              <!-- Risk Zones -->
+              <rect x="38" y="22" width="76" height="122" fill="#F59E0B" fill-opacity="0.12" />
+              <rect x="114" y="22" width="102" height="122" fill="#10B981" fill-opacity="0.14" />
+              <rect x="216" y="22" width="84" height="122" fill="#EF4444" fill-opacity="0.13" />
+
+              <!-- Zone Labels -->
+              <text x="76" y="36" text-anchor="middle" fill="#B45309" font-size="8.5" font-weight="700">UNDERLOAD</text>
+              <text x="76" y="47" text-anchor="middle" fill="#B45309" font-size="8">&lt; 0.8</text>
+
+              <text x="165" y="36" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="800">SWEET SPOT</text>
+              <text x="165" y="47" text-anchor="middle" fill="#047857" font-size="8">0.8 – 1.3</text>
+
+              <text x="258" y="36" text-anchor="middle" fill="#B91C1C" font-size="8.5" font-weight="800">SPIKE RISK</text>
+              <text x="258" y="47" text-anchor="middle" fill="#B91C1C" font-size="8">&gt; 1.5</text>
+
+              <!-- Axes -->
+              <line x1="38" y1="22" x2="38" y2="144" stroke="#334155" stroke-width="1.5" />
+              <line x1="38" y1="144" x2="300" y2="144" stroke="#334155" stroke-width="1.5" />
+
+              <!-- U-Shaped Relative Injury Risk Curve -->
+              <path d="M 48 68 Q 92 118 165 126 Q 225 124 288 46" fill="none" stroke="#0A192F" stroke-width="3" stroke-linecap="round" />
+              <!-- Optimal Point Marker -->
+              <circle cx="165" cy="126" r="5" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5" />
+              <circle cx="272" cy="64" r="5" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5" />
+
+              <text x="165" y="114" text-anchor="middle" fill="#065F46" font-size="8.5" font-weight="700">Optimal Adaptation</text>
+              <text x="18" y="85" text-anchor="middle" fill="#475569" font-size="8.5" font-weight="600" transform="rotate(-90 18 85)">Injury Risk</text>
+              <text x="169" y="162" text-anchor="middle" fill="#475569" font-size="9" font-weight="600">Acute : Chronic Workload Ratio (ACWR)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Clinical Guideline Governance Pillars with Icons -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-navy-900 text-electric-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 contenteditable="true" class="text-sm font-bold text-navy-900">Criteria Over Calendar</h4>
+            <p contenteditable="true" class="text-xs text-slate-600 mt-1">Advancement governed by objective strength, hop, and movement quality benchmarks alongside biological healing time.</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-electric-500 text-white flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </div>
+          <div>
+            <h4 contenteditable="true" class="text-sm font-bold text-navy-900">Psychological Readiness</h4>
+            <p contenteditable="true" class="text-xs text-slate-600 mt-1">Routine ACL-RSI, fear-avoidance (TSK-11), and athlete confidence scoring integrated into clearance decisions.</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-navy-900 text-electric-400 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 contenteditable="true" class="text-sm font-bold text-navy-900">Shared MDT Decision</h4>
+            <p contenteditable="true" class="text-xs text-slate-600 mt-1">Structured consensus across surgeon, sports physician, physical therapist, S&amp;C coach, and athlete.</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-electric-500 text-white flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+          </div>
+          <div>
+            <h4 contenteditable="true" class="text-sm font-bold text-navy-900">Secondary Prevention</h4>
+            <p contenteditable="true" class="text-xs text-slate-600 mt-1">Post-RTS maintenance micro-dosing (Nordics, Copenhagen, balance/landing) sustained across full season.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ANATOMICAL REGIONS & CLINICAL SUB-DIVISIONS -->
+    <section id="regions" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 print-shadow-none space-y-6">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+        <div>
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-electric-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+            </svg>
+            Kinetic-Chain Taxonomy
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-1">
+            Sub-Division of Anatomical Regions &amp; Targeted KPIs
+          </h2>
+          <p contenteditable="true" class="text-sm text-slate-600 mt-1 max-w-3xl">
+            Systematic breakdown of the body into six primary kinetic regions and their clinical sub-divisions. Click any anatomical node on the map or filter pill to isolate regional sub-structures and RTS benchmarks.
+          </p>
+        </div>
+
+        <!-- Quick Region Filter Pills -->
+        <div id="region-filter-bar" class="no-print flex flex-wrap gap-1.5" role="tablist" aria-label="Anatomical Region Filter">
+          <button type="button" data-region="all" class="region-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-navy-900 text-white transition cursor-pointer">
+            All 6 Regions
+          </button>
+          <button type="button" data-region="upper" class="region-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            01 Upper
+          </button>
+          <button type="button" data-region="spine" class="region-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            02 Spine
+          </button>
+          <button type="button" data-region="hip" class="region-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            03 Hip/Groin
+          </button>
+          <button type="button" data-region="thigh" class="region-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            04 Thigh
+          </button>
+          <button type="button" data-region="knee" class="region-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            05 Knee
+          </button>
+          <button type="button" data-region="ankle" class="region-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            06 Ankle/Foot
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Left Column: Interactive SVG Kinetic-Chain Body Map -->
+        <div class="lg:col-span-4 bg-navy-950 text-white rounded-2xl p-5 border border-navy-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-electric-400">Interactive Region Map</span>
+            <span class="text-[11px] text-slate-400">Click nodes 01–06</span>
+          </div>
+
+          <div class="bg-navy-900/70 rounded-xl border border-navy-800 p-3 flex items-center justify-center">
+            <svg viewBox="0 0 260 440" class="w-full max-w-[250px] h-auto" role="img" aria-label="Interactive human kinetic chain anatomical region map">
+              <defs>
+                <radialGradient id="bodyGlow" cx="50%" cy="45%" r="50%">
+                  <stop offset="0%" stop-color="#00A8E8" stop-opacity="0.18" />
+                  <stop offset="100%" stop-color="#050D1A" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="130" cy="210" r="145" fill="url(#bodyGlow)" />
+
+              <!-- Subtle Reference Grid -->
+              <line x1="130" y1="15" x2="130" y2="425" stroke="#1D3557" stroke-width="1" stroke-dasharray="4 4" />
+              <line x1="30" y1="100" x2="230" y2="100" stroke="#1D3557" stroke-width="0.8" stroke-dasharray="3 3" />
+              <line x1="30" y1="210" x2="230" y2="210" stroke="#1D3557" stroke-width="0.8" stroke-dasharray="3 3" />
+              <line x1="30" y1="315" x2="230" y2="315" stroke="#1D3557" stroke-width="0.8" stroke-dasharray="3 3" />
+
+              <!-- Stylized Athletic Silhouette -->
+              <!-- Head -->
+              <circle cx="130" cy="44" r="21" fill="#112240" stroke="#38BDF8" stroke-width="1.5" />
+              <!-- Neck & Torso -->
+              <path d="M 121 65 L 139 65 L 143 78 L 178 90 L 166 190 L 156 218 L 104 218 L 94 190 L 82 90 L 117 78 Z" fill="#112240" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" />
+              <!-- Left Arm -->
+              <path d="M 82 90 L 58 145 L 48 202 L 62 206 L 76 152 L 90 112" fill="#112240" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" />
+              <!-- Right Arm -->
+              <path d="M 178 90 L 202 145 L 212 202 L 198 206 L 184 152 L 170 112" fill="#112240" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" />
+              <!-- Left Leg -->
+              <path d="M 104 218 L 94 308 L 96 392 L 82 408 L 112 408 L 116 392 L 122 308 L 126 226" fill="#112240" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" />
+              <!-- Right Leg -->
+              <path d="M 156 218 L 166 308 L 164 392 L 178 408 L 148 408 L 144 392 L 138 308 L 134 226" fill="#112240" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" />
+
+              <!-- Kinetic Chain Flow Path -->
+              <path d="M 182 98 L 130 148 L 130 205 L 107 262 L 107 315 L 104 395" fill="none" stroke="#00A8E8" stroke-width="2" stroke-dasharray="4 3" opacity="0.7" />
+
+              <!-- Hotspot 01: Upper Quarter (Right Shoulder / Throwing Arm) -->
+              <g class="region-hotspot" data-region="upper" transform="translate(178, 96)">
+                <circle class="pulse-ring" cx="0" cy="0" r="15" fill="#00A8E8" fill-opacity="0.18" stroke="#38BDF8" stroke-width="1.5" opacity="0.8" />
+                <circle cx="0" cy="0" r="10" fill="#0A192F" stroke="#00A8E8" stroke-width="2" />
+                <text x="0" y="3.5" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800">01</text>
+              </g>
+              <line x1="194" y1="96" x2="215" y2="86" stroke="#38BDF8" stroke-width="1" />
+              <text x="217" y="88" fill="#CBD5E1" font-size="8.5" font-weight="700">Upper</text>
+
+              <!-- Hotspot 02: Spine & Core -->
+              <g class="region-hotspot" data-region="spine" transform="translate(130, 148)">
+                <circle class="pulse-ring" cx="0" cy="0" r="15" fill="#00A8E8" fill-opacity="0.18" stroke="#38BDF8" stroke-width="1.5" opacity="0.8" />
+                <circle cx="0" cy="0" r="10" fill="#0A192F" stroke="#00A8E8" stroke-width="2" />
+                <text x="0" y="3.5" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800">02</text>
+              </g>
+              <line x1="115" y1="148" x2="54" y2="132" stroke="#38BDF8" stroke-width="1" />
+              <text x="12" y="135" fill="#CBD5E1" font-size="8.5" font-weight="700">Spine/Core</text>
+
+              <!-- Hotspot 03: Hip & Groin -->
+              <g class="region-hotspot" data-region="hip" transform="translate(130, 208)">
+                <circle class="pulse-ring" cx="0" cy="0" r="15" fill="#00A8E8" fill-opacity="0.18" stroke="#38BDF8" stroke-width="1.5" opacity="0.8" />
+                <circle cx="0" cy="0" r="10" fill="#0A192F" stroke="#00A8E8" stroke-width="2" />
+                <text x="0" y="3.5" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800">03</text>
+              </g>
+              <line x1="145" y1="208" x2="205" y2="208" stroke="#38BDF8" stroke-width="1" />
+              <text x="208" y="211" fill="#CBD5E1" font-size="8.5" font-weight="700">Hip/Groin</text>
+
+              <!-- Hotspot 04: Thigh & Hamstring -->
+              <g class="region-hotspot" data-region="thigh" transform="translate(152, 262)">
+                <circle class="pulse-ring" cx="0" cy="0" r="15" fill="#00A8E8" fill-opacity="0.18" stroke="#38BDF8" stroke-width="1.5" opacity="0.8" />
+                <circle cx="0" cy="0" r="10" fill="#0A192F" stroke="#00A8E8" stroke-width="2" />
+                <text x="0" y="3.5" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800">04</text>
+              </g>
+              <line x1="167" y1="262" x2="206" y2="262" stroke="#38BDF8" stroke-width="1" />
+              <text x="209" y="265" fill="#CBD5E1" font-size="8.5" font-weight="700">Thigh</text>
+
+              <!-- Hotspot 05: Knee -->
+              <g class="region-hotspot" data-region="knee" transform="translate(107, 315)">
+                <circle class="pulse-ring" cx="0" cy="0" r="15" fill="#00A8E8" fill-opacity="0.18" stroke="#38BDF8" stroke-width="1.5" opacity="0.8" />
+                <circle cx="0" cy="0" r="10" fill="#0A192F" stroke="#00A8E8" stroke-width="2" />
+                <text x="0" y="3.5" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800">05</text>
+              </g>
+              <line x1="92" y1="315" x2="50" y2="315" stroke="#38BDF8" stroke-width="1" />
+              <text x="16" y="318" fill="#CBD5E1" font-size="8.5" font-weight="700">Knee</text>
+
+              <!-- Hotspot 06: Lower Leg, Ankle & Foot -->
+              <g class="region-hotspot" data-region="ankle" transform="translate(104, 392)">
+                <circle class="pulse-ring" cx="0" cy="0" r="15" fill="#00A8E8" fill-opacity="0.18" stroke="#38BDF8" stroke-width="1.5" opacity="0.8" />
+                <circle cx="0" cy="0" r="10" fill="#0A192F" stroke="#00A8E8" stroke-width="2" />
+                <text x="0" y="3.5" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800">06</text>
+              </g>
+              <line x1="119" y1="392" x2="195" y2="392" stroke="#38BDF8" stroke-width="1" />
+              <text x="198" y="395" fill="#CBD5E1" font-size="8.5" font-weight="700">Ankle/Foot</text>
+            </svg>
+          </div>
+
+          <div class="text-xs text-slate-300 bg-navy-900/90 border border-navy-800 rounded-xl p-3.5 space-y-1.5">
+            <div class="font-bold text-electric-400">Kinetic-Chain Principle</div>
+            <p class="leading-relaxed text-slate-300">
+              Every regional sub-division interacts along the ground-to-hand kinetic chain: proximal pelvic/core deficits directly alter distal knee valgus and shoulder torque.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: 6 Regional Sub-Division Cards Grid -->
+        <div id="region-cards-grid" class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Region 01: Upper Quarter -->
+          <article data-region="upper" class="region-card rounded-2xl bg-slate-50 border border-slate-200 p-5 space-y-3.5 hover:border-electric-500/60 transition">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-navy-900 text-electric-400 flex items-center justify-center shrink-0">
+                  <!-- Custom Shoulder/Scapula SVG Icon -->
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 7c3-2 7-2 9 1l3 8M14 8a3.5 3.5 0 11-5 3.5M4 13l4-2 2 7-5-1z" />
+                    <circle cx="13.5" cy="9.5" r="2" fill="currentColor" stroke="none" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Region 01</span>
+                  <h3 contenteditable="true" class="text-base font-extrabold text-navy-900">Upper Quarter &amp; Overhead</h3>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-navy-900 text-white shrink-0">3 Sub-Divisions</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">1A. Glenohumeral &amp; Rotator Cuff</div>
+                <p class="text-slate-600 mt-0.5">Labral/SLAP, internal impingement, ER:IR torque ratio (KPI: ≥ 65–75%).</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">1B. Scapulothoracic &amp; AC Joint</div>
+                <p class="text-slate-600 mt-0.5">Upward rotation timing, serratus/lower trap EMG balance, clavicular mechanics.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">1C. Throwing Elbow &amp; Forearm</div>
+                <p class="text-slate-600 mt-0.5">UCL valgus stress shielding, flexor-pronator mass &amp; ASH test force output.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Region 02: Spine & Core -->
+          <article data-region="spine" class="region-card rounded-2xl bg-slate-50 border border-slate-200 p-5 space-y-3.5 hover:border-electric-500/60 transition">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-electric-500 text-white flex items-center justify-center shrink-0">
+                  <!-- Custom Spine Vertebrae SVG Icon -->
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="8" y="3" width="8" height="3.5" rx="1" />
+                    <rect x="7" y="9" width="10" height="3.5" rx="1" />
+                    <rect x="7" y="15" width="10" height="3.5" rx="1" />
+                    <path stroke-linecap="round" d="M12 6.5V9M12 12.5V15M12 18.5V21" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Region 02</span>
+                  <h3 contenteditable="true" class="text-base font-extrabold text-navy-900">Spine &amp; Core Kinetic Link</h3>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-navy-900 text-white shrink-0">3 Sub-Divisions</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">2A. Thoracic Spine &amp; Rib Cage</div>
+                <p class="text-slate-600 mt-0.5">Rotational mobility (≥ 45° symmetry) protecting lumbar &amp; throwing shoulder.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">2B. Lumbar Spine &amp; Pars / Disc</div>
+                <p class="text-slate-600 mt-0.5">Extension-load tolerance, spondylolysis unloading &amp; isometric trunk endurance.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">2C. Lumbopelvic &amp; Trunk Control</div>
+                <p class="text-slate-600 mt-0.5">Anti-lateral flexion stiffness during high-speed cutting and landing.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Region 03: Hip & Groin -->
+          <article data-region="hip" class="region-card rounded-2xl bg-slate-50 border border-slate-200 p-5 space-y-3.5 hover:border-electric-500/60 transition">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-navy-900 text-electric-400 flex items-center justify-center shrink-0">
+                  <!-- Custom Pelvis / Hip Joint SVG Icon -->
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7c2-2 5-1 8 1 3-2 6-3 8-1 1 3-1 7-4 8l-4-2-4 2c-3-1-5-5-4-8z" />
+                    <circle cx="7.5" cy="14.5" r="2" />
+                    <circle cx="16.5" cy="14.5" r="2" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Region 03 (Doha Taxonomy)</span>
+                  <h3 contenteditable="true" class="text-base font-extrabold text-navy-900">Hip &amp; Groin Complex</h3>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-navy-900 text-white shrink-0">4 Sub-Divisions</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">3A. Adductor-Related Groin</div>
+                <p class="text-slate-600 mt-0.5">Adductor longus load progression; 0°/45° squeeze test pain-free KPI.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">3B. Iliopsoas &amp; Hip Joint (FAI / Labrum)</div>
+                <p class="text-slate-600 mt-0.5">Cam/pincer impingement control, hip IR/ER ROM &amp; flexion torque symmetry.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">3C. Inguinal &amp; Pubic-Related</div>
+                <p class="text-slate-600 mt-0.5">Posterior wall/symphysis shear protection &amp; constraint-based field exposure.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">3D. Posterior Hip &amp; Gluteal Complex</div>
+                <p class="text-slate-600 mt-0.5">Gluteus medius/maximus torque preventing contralateral pelvic drop.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Region 04: Thigh & Hamstring -->
+          <article data-region="thigh" class="region-card rounded-2xl bg-slate-50 border border-slate-200 p-5 space-y-3.5 hover:border-electric-500/60 transition">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-electric-500 text-white flex items-center justify-center shrink-0">
+                  <!-- Custom Muscle Fiber / Thigh SVG Icon -->
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 4c-2 5-2 11 0 16M16 4c2 5 2 11 0 16M12 3v18" />
+                    <path stroke-linecap="round" d="M9.5 8.5L14.5 10M9.5 14L14.5 15.5" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Region 04</span>
+                  <h3 contenteditable="true" class="text-base font-extrabold text-navy-900">Thigh &amp; Hamstring Complex</h3>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-navy-900 text-white shrink-0">3 Sub-Divisions</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">4A. Biceps Femoris &amp; T-Junction</div>
+                <p class="text-slate-600 mt-0.5">Intramuscular tendon/T-junction tears; eccentric Nordic KPI &amp; sprint exposure.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">4B. Medial Hamstrings (ST / SM)</div>
+                <p class="text-slate-600 mt-0.5">High-stretch deceleration mechanics &amp; hip-extension/knee-flexion synergy.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">4C. Quadriceps &amp; Rectus Femoris</div>
+                <p class="text-slate-600 mt-0.5">Central tendon/kicking injuries; H:Q functional eccentric-to-concentric ratio.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Region 05: Knee & Ligamentous -->
+          <article data-region="knee" class="region-card rounded-2xl bg-slate-50 border border-slate-200 p-5 space-y-3.5 hover:border-electric-500/60 transition">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-navy-900 text-electric-400 flex items-center justify-center shrink-0">
+                  <!-- Custom Knee Joint / Cruciate Ligament SVG Icon -->
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 3v5c0 1.5 1.5 2.5 4 2.5s4-1 4-2.5V3M8 21v-5c0-1.5 1.5-2.5 4-2.5s4 1 4 2.5v5" />
+                    <path stroke-linecap="round" d="M9.5 10.5l5 3M14.5 10.5l-5 3" stroke="#38BDF8" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Region 05</span>
+                  <h3 contenteditable="true" class="text-base font-extrabold text-navy-900">Knee &amp; Ligamentous Stabilizers</h3>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-electric-500 text-white shrink-0">3 Sub-Divisions</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">5A. ACL &amp; Anterolateral Complex (LET)</div>
+                <p class="text-slate-600 mt-0.5">Rotational stability, Quad LSI ≥ 90–95%, hop battery &amp; valgus angle &lt; 5°.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">5B. Meniscus, Cartilage &amp; PLC / MCL</div>
+                <p class="text-slate-600 mt-0.5">Ramp/root repair weight-bearing protection &amp; varus/valgus joint-line loading.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">5C. Extensor &amp; Patellofemoral Unit</div>
+                <p class="text-slate-600 mt-0.5">Patellar/quad tendinopathy energy-storage capacity &amp; heavy slow resistance.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Region 06: Lower Leg, Ankle & Foot -->
+          <article data-region="ankle" class="region-card rounded-2xl bg-slate-50 border border-slate-200 p-5 space-y-3.5 hover:border-electric-500/60 transition">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-electric-500 text-white flex items-center justify-center shrink-0">
+                  <!-- Custom Ankle & Achilles SVG Icon -->
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v10c0 2-1.5 3.5-3 4.5-.8.6-.5 2 .5 2h12c1.2 0 2-.8 2-1.8 0-.9-.7-1.7-1.6-1.9l-4.9-1.3V3" />
+                    <path stroke-linecap="round" d="M9 6v7" stroke-dasharray="2 2" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-electric-600">Region 06</span>
+                  <h3 contenteditable="true" class="text-base font-extrabold text-navy-900">Lower Leg, Ankle &amp; Foot</h3>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-navy-900 text-white shrink-0">3 Sub-Divisions</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">6A. Calf–Achilles Tendon Unit</div>
+                <p class="text-slate-600 mt-0.5">Gastroc/soleus MTJ &amp; Achilles SSC; single-leg heel-rise power &amp; reactive RSI.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">6B. Lateral/Medial Ankle &amp; Syndesmosis</div>
+                <p class="text-slate-600 mt-0.5">ATFL/CFL &amp; high-ankle stability; dorsiflexion knee-to-wall &amp; SEBT symmetry.</p>
+              </div>
+              <div contenteditable="true" class="bg-white rounded-xl p-2.5 border border-slate-200">
+                <div class="font-bold text-navy-900">6C. Foot Intrinsics &amp; Plantar Fascia</div>
+                <p class="text-slate-600 mt-0.5">Windlass stiffness, Lisfranc/MTP push-off torque &amp; ground-contact efficiency.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: #ISRM26 SCIENTIFIC ALIGNMENT & INTERACTIVE FOCUS TABS -->
+    <section id="isrm-alignment" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 print-shadow-none">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5 mb-6">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-electric-600">
+            <span>#ISRM26 Scientific Synergy</span>
+            <span>•</span>
+            <span>Milan, Nov 21–22, 2026</span>
+          </div>
+          <h2 class="text-2xl font-extrabold text-navy-900 mt-1">
+            Clinical Alignment with #ISRM26 Key Performance Indicators
+          </h2>
+        </div>
+
+        <!-- Interactive Filter Tabs -->
+        <div id="isrm-tabs" class="no-print flex flex-wrap gap-2" role="tablist" aria-label="ISRM26 Scientific Tracks">
+          <button type="button" data-tab="all" class="tab-btn active px-3.5 py-2 rounded-xl text-xs font-semibold bg-navy-900 text-white transition cursor-pointer">
+            All Tracks
+          </button>
+          <button type="button" data-tab="knee" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            Knee &amp; ACL KPIs
+          </button>
+          <button type="button" data-tab="muscle" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            Muscle &amp; Tendon
+          </button>
+          <button type="button" data-tab="hip" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            Hip, Groin &amp; Spine
+          </button>
+          <button type="button" data-tab="biomech" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+            Biomechanics, EMG &amp; S&amp;C
+          </button>
+        </div>
+      </div>
+
+      <div id="isrm-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Card 1: Knee & ACL -->
+        <div data-category="knee" class="isrm-card rounded-xl bg-slate-50 border border-slate-200 p-5">
+          <div class="flex items-center justify-between mb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-navy-900 text-electric-400 flex items-center justify-center">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" d="M8 4v5c0 1.2 1.8 2 4 2s4-.8 4-2V4M8 20v-5c0-1.2 1.8-2 4-2s4 .8 4 2v5M10 11l4 2M14 11l-4 2" />
+                </svg>
+              </span>
+              <span class="text-xs font-bold uppercase tracking-wider text-electric-600">Sessions #2, #5, #10 &amp; Workshop A</span>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-navy-900 text-white">Knee &amp; ACL</span>
+          </div>
+          <h3 contenteditable="true" class="text-base font-bold text-navy-900 mb-2">
+            ACL Reconstruction, Meniscal Repair &amp; Secondary Risk Reduction
+          </h3>
+          <p contenteditable="true" class="text-sm text-slate-600 leading-relaxed">
+            25+ years managing complex knee pathologies (ACLR + LET, PLC, cartilage lesions, arthrofibrosis prevention). Implementing criteria-based open/closed kinetic chain progression and objective hop/deceleration KPIs to prevent second ACL injury.
+          </p>
+        </div>
+
+        <!-- Card 2: Muscle & Tendon -->
+        <div data-category="muscle" class="isrm-card rounded-xl bg-slate-50 border border-slate-200 p-5">
+          <div class="flex items-center justify-between mb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-navy-900 text-electric-400 flex items-center justify-center">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" d="M8 4c-2 5-2 11 0 16M16 4c2 5 2 11 0 16M12 3v18" />
+                </svg>
+              </span>
+              <span class="text-xs font-bold uppercase tracking-wider text-electric-600">Sessions #1, #4, #7 &amp; Workshop B</span>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-navy-900 text-white">Muscle &amp; Tendon</span>
+          </div>
+          <h3 contenteditable="true" class="text-base font-bold text-navy-900 mb-2">
+            Hamstring T-Junction, Calf-Achilles &amp; Ankle Reconditioning
+          </h3>
+          <p contenteditable="true" class="text-sm text-slate-600 leading-relaxed">
+            Bridging acute muscle injury management with high-speed sprint mechanics, Nordic hamstring integration, and individualized calf/Achilles peak power reconditioning for field and court athletes.
+          </p>
+        </div>
+
+        <!-- Card 3: Hip, Groin & Overhead/Spine -->
+        <div data-category="hip" class="isrm-card rounded-xl bg-slate-50 border border-slate-200 p-5">
+          <div class="flex items-center justify-between mb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-navy-900 text-electric-400 flex items-center justify-center">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 7c3-2 7-2 9 1l3 8M4 13l4-2 2 7-5-1z" />
+                </svg>
+              </span>
+              <span class="text-xs font-bold uppercase tracking-wider text-electric-600">Sessions #3, #6, #8, #12 &amp; Workshop C</span>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-navy-900 text-white">Hip, Groin &amp; Upper Quarter</span>
+          </div>
+          <h3 contenteditable="true" class="text-base font-bold text-navy-900 mb-2">
+            Adductor Load Management, Spine &amp; Overhead Shoulder KPIs
+          </h3>
+          <p contenteditable="true" class="text-sm text-slate-600 leading-relaxed">
+            Constraint-based field exposure frameworks for inguinal and adductor-related groin pain, alongside objective kinetic-chain diagnostics for overhead throwing shoulders and athletic low back pain.
+          </p>
+        </div>
+
+        <!-- Card 4: Biomechanics, EMG & S&C -->
+        <div data-category="biomech" class="isrm-card rounded-xl bg-slate-50 border border-slate-200 p-5">
+          <div class="flex items-center justify-between mb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-electric-500 text-white flex items-center justify-center">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3l3-7 4 14 3-7h5" />
+                </svg>
+              </span>
+              <span class="text-xs font-bold uppercase tracking-wider text-electric-600">Sessions #9 &amp; #11 — Enhancing Recovery</span>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-electric-500 text-white">Biomechanics &amp; Performance</span>
+          </div>
+          <h3 contenteditable="true" class="text-base font-bold text-navy-900 mb-2">
+            EMG Neuromuscular Assessment, Force-Velocity &amp; BFR Integration
+          </h3>
+          <p contenteditable="true" class="text-sm text-slate-600 leading-relaxed">
+            Integrating surface EMG, biomechanical movement analysis, high-intensity interval conditioning, and Blood Flow Restriction (BFR) protocols to restore strength-speed profiles under competitive stress.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CAREER EXPERIENCE & CLINICAL LEADERSHIP TIMELINE -->
+    <section id="experience" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-electric-600">25+ Years of Track Record</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-1">Career Experience &amp; Clinical Leadership</h2>
+        </div>
+        <button id="add-role-btn" type="button" class="no-print inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-navy-900 hover:bg-navy-800 text-white transition cursor-pointer self-start sm:self-auto">
+          <span>+ Add Career Role</span>
+        </button>
+      </div>
+
+      <div id="timeline-container" class="relative border-l-2 border-electric-500/40 ml-3 sm:ml-4 space-y-6">
+        <!-- Role 1 -->
+        <div class="relative pl-6 sm:pl-8">
+          <span class="absolute -left-[9px] top-6 h-4 w-4 rounded-full bg-electric-500 ring-4 ring-slate-50"></span>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 print-shadow-none">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 contenteditable="true" class="text-lg font-bold text-navy-900">
+                  Head of Sports Rehabilitation &amp; Clinical Biomechanics
+                </h3>
+                <p contenteditable="true" class="text-sm font-semibold text-electric-600">
+                  [Elite Sports Medicine Institute / Professional Club Name] — [City, Country]
+                </p>
+              </div>
+              <span contenteditable="true" class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-navy-900 text-white self-start">
+                [2015 – Present]
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>Objective RTS Governance:</strong> Architected standardized Return-to-Sport (RTS) KPI batteries combining isometric/isokinetic strength, force-plate jump profiling, and GPS field load benchmarks across professional rosters.</span>
+              </li>
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>Biomechanical Movement Laboratory:</strong> Directed 3D motion capture and surface EMG evaluations for post-ACL, hamstring, and shoulder athletes, correcting dynamic valgus and asymmetric deceleration mechanics.</span>
+              </li>
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>Multidisciplinary Performance Board:</strong> Led weekly case conferences uniting orthopaedic surgeons, team physicians, strength &amp; conditioning coaches, and sports nutritionists.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="relative pl-6 sm:pl-8">
+          <span class="absolute -left-[9px] top-6 h-4 w-4 rounded-full bg-navy-900 ring-4 ring-slate-50"></span>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 print-shadow-none">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 contenteditable="true" class="text-lg font-bold text-navy-900">
+                  Senior Sports Physical Therapist &amp; Movement Analyst
+                </h3>
+                <p contenteditable="true" class="text-sm font-semibold text-electric-600">
+                  [National Sports Federation / Olympic Training Center] — [City, Country]
+                </p>
+              </div>
+              <span contenteditable="true" class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-navy-900 border border-slate-300 self-start">
+                [2006 – 2015]
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>Injury Prevention Programs:</strong> Implemented longitudinal neuromuscular warm-up and eccentric loading protocols, significantly lowering non-contact hamstring and ankle sprain incidence over consecutive competitive seasons.</span>
+              </li>
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>International Tournament Medical Coverage:</strong> Provided pitch-side acute trauma management, manual therapy, and rapid recovery interventions during international championships and multi-sport games.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="relative pl-6 sm:pl-8">
+          <span class="absolute -left-[9px] top-6 h-4 w-4 rounded-full bg-navy-900 ring-4 ring-slate-50"></span>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 print-shadow-none">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 contenteditable="true" class="text-lg font-bold text-navy-900">
+                  Sports &amp; Orthopaedic Physical Therapist
+                </h3>
+                <p contenteditable="true" class="text-sm font-semibold text-electric-600">
+                  [University Hospital / Sports Trauma Clinic] — [City, Country]
+                </p>
+              </div>
+              <span contenteditable="true" class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-navy-900 border border-slate-300 self-start">
+                [2000 – 2006]
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>Post-Operative Orthopaedic Rehabilitation:</strong> Managed high-volume caseloads following ligament reconstruction, rotator cuff repair, Achilles tendon repair, and cartilage restoration procedures.</span>
+              </li>
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>Clinical Mentorship:</strong> Trained doctoral physical therapy residents and athletic trainers in functional movement screening and objective strength testing.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: EDUCATION, CERTIFICATIONS & SCIENTIFIC CONTRIBUTIONS -->
+    <section id="credentials" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Education & Credentials (7 Cols) -->
+      <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 print-shadow-none space-y-5">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-electric-600">Academic &amp; Clinical Credentials</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900 mt-1">Education &amp; Board Certifications</h2>
+        </div>
+
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 contenteditable="true" class="text-base font-bold text-navy-900">Doctor of Physical Therapy (DPT)</h3>
+              <span contenteditable="true" class="text-xs font-semibold text-electric-600">[Graduation Year]</span>
+            </div>
+            <p contenteditable="true" class="text-sm text-slate-600 mt-1">
+              [University / School of Health Sciences Name] — Focus: Musculoskeletal &amp; Sports Biomechanics
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 contenteditable="true" class="text-base font-bold text-navy-900">Postgraduate Specialization in Clinical Biomechanics &amp; Movement Analysis</h3>
+              <span contenteditable="true" class="text-xs font-semibold text-electric-600">[Year]</span>
+            </div>
+            <p contenteditable="true" class="text-sm text-slate-600 mt-1">
+              [Institution / Biomechanics Laboratory] — Kinematic, Kinetic &amp; Electromyographic Assessment
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="p-3.5 rounded-xl border border-slate-200">
+              <div class="text-xs font-bold text-electric-600 uppercase">Licensure</div>
+              <div contenteditable="true" class="text-sm font-semibold text-navy-900 mt-0.5">Licensed Physical Therapist (#[License ID])</div>
+            </div>
+            <div class="p-3.5 rounded-xl border border-slate-200">
+              <div class="text-xs font-bold text-electric-600 uppercase">Certifications</div>
+              <div contenteditable="true" class="text-sm font-semibold text-navy-900 mt-0.5">[SCS / CSCS / OMPT / Sports PT Specialist]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scientific Contributions & Conference Activity (5 Cols) -->
+      <div class="lg:col-span-5 bg-navy-900 text-white rounded-2xl p-6 sm:p-8 shadow-sm border border-navy-700 print-shadow-none flex flex-col justify-between space-y-5">
+        <div class="space-y-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-electric-400">Academic &amp; Field Exchange</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1">Scientific &amp; Conference Profile</h2>
+          </div>
+
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li contenteditable="true" class="p-3.5 rounded-xl bg-navy-800/90 border border-navy-700">
+              <span class="block text-xs font-bold text-electric-400 uppercase mb-1">Delegate — November 2026</span>
+              <strong class="text-white">3rd International Sports Rehab Meeting (#ISRM26)</strong>, Milan, Italy. Engaged in advanced workshops on ACL risk reduction, Achilles reconditioning, and overhead shoulder diagnostics.
+            </li>
+            <li contenteditable="true" class="p-3.5 rounded-xl bg-navy-800/90 border border-navy-700">
+              <span class="block text-xs font-bold text-electric-400 uppercase mb-1">Clinical Lectures &amp; Workshops</span>
+              <strong class="text-white">[Keynote / Workshop Title]</strong> — Presented practical frameworks on biomechanical movement screening and criteria-based RTS progression for competitive athletes.
+            </li>
+            <li contenteditable="true" class="p-3.5 rounded-xl bg-navy-800/90 border border-navy-700">
+              <span class="block text-xs font-bold text-electric-400 uppercase mb-1">Professional Memberships</span>
+              <span class="text-slate-200">[International Federation of Sports Physical Therapy (IFSPT) / ESSKA / National PT Association]</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-2 border-t border-navy-800 flex items-center justify-between text-xs text-slate-400">
+          <span>Available for International Collaboration</span>
+          <span class="text-electric-400 font-semibold">#ISRM26 Milan</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NETWORKING & CONTACT FOOTER -->
+  <footer class="bg-navy-950 text-slate-300 border-t border-navy-800 mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-center sm:text-left">
+        <p class="text-sm font-bold text-white">
+          <span id="footer-name">Dr. [Full Name], PT, DPT</span> — Senior Sports Injury &amp; Biomechanics Specialist
+        </p>
+        <p class="text-xs text-slate-400 mt-1">
+          3rd International Sports Rehab Meeting (#ISRM26) • Innovation Campus, Milan, Italy • November 21–22, 2026
+        </p>
+      </div>
+
+      <div class="no-print flex flex-wrap items-center gap-3">
+        <button id="copy-contact-btn" type="button" class="px-4 py-2 rounded-xl text-xs font-semibold bg-navy-800 hover:bg-navy-700 text-white border border-navy-700 transition cursor-pointer">
+          Copy Contact Details
+        </button>
+        <button id="footer-vcard-btn" type="button" class="px-4 py-2 rounded-xl text-xs font-semibold bg-electric-500 hover:bg-electric-600 text-white transition cursor-pointer">
+          Show #ISRM26 Delegate Card
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DELEGATE NETWORKING V-CARD / QR PASS MODAL -->
+  <div id="vcard-modal" class="no-print fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200 animate-[fadeIn_0.2s_ease-out]">
+      <!-- Modal Top Banner -->
+      <div class="bg-navy-900 text-white p-6 relative">
+        <button id="close-vcard-btn" type="button" aria-label="Close modal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-white flex items-center justify-center transition cursor-pointer">
+          ✕
+        </button>
+        <div class="flex items-center gap-4 pr-8">
+          <div class="w-16 h-16 rounded-2xl overflow-hidden ring-2 ring-electric-400/80 shrink-0 bg-navy-800">
+            <img src="delegate-photo.jpg" alt="Delegate Portrait" class="w-full h-full object-cover object-top" />
+          </div>
+          <div>
+            <div class="inline-block px-2.5 py-0.5 rounded-full bg-electric-500 text-white text-[11px] font-bold tracking-wider mb-1.5">
+              #ISRM26 NETWORKING PASS
+            </div>
+            <h3 id="modal-title" class="text-lg sm:text-xl font-extrabold text-white leading-tight">Dr. [Full Name], PT, DPT</h3>
+            <p id="modal-subtitle" class="text-xs text-electric-400 font-medium mt-1">
+              Senior Sports Injury Physical Therapist • Biomechanical Specialist
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Body with Crisp Vector QR Code & Contact Summary -->
+      <div class="p-6 space-y-5">
+        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <!-- Stylized Crisp SVG QR Code Matrix -->
+          <div class="w-24 h-24 shrink-0 bg-white p-2 rounded-xl border border-slate-200 flex items-center justify-center">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-navy-900" aria-label="Delegate QR Code">
+              <rect x="5" y="5" width="28" height="28" rx="4" fill="none" stroke="#0A192F" stroke-width="6"/>
+              <rect x="13" y="13" width="12" height="12" rx="2"/>
+              <rect x="67" y="5" width="28" height="28" rx="4" fill="none" stroke="#0A192F" stroke-width="6"/>
+              <rect x="75" y="13" width="12" height="12" rx="2"/>
+              <rect x="5" y="67" width="28" height="28" rx="4" fill="none" stroke="#0A192F" stroke-width="6"/>
+              <rect x="13" y="75" width="12" height="12" rx="2"/>
+              <rect x="42" y="8" width="8" height="8" rx="1.5"/>
+              <rect x="52" y="18" width="8" height="8" rx="1.5"/>
+              <rect x="42" y="38" width="16" height="16" rx="3" fill="#00A8E8"/>
+              <rect x="8" y="44" width="10" height="10" rx="1.5"/>
+              <rect x="24" y="48" width="10" height="10" rx="1.5"/>
+              <rect x="66" y="44" width="10" height="10" rx="1.5"/>
+              <rect x="82" y="48" width="10" height="10" rx="1.5"/>
+              <rect x="44" y="66" width="10" height="10" rx="1.5"/>
+              <rect x="62" y="70" width="12" height="12" rx="1.5"/>
+              <rect x="80" y="66" width="12" height="8" rx="1.5"/>
+              <rect x="44" y="82" width="14" height="10" rx="1.5"/>
+              <rect x="76" y="82" width="16" height="10" rx="1.5"/>
+            </svg>
+          </div>
+
+          <div class="space-y-1.5 text-xs text-slate-700 overflow-hidden">
+            <div class="font-bold text-navy-900 uppercase tracking-wider text-[11px]">Direct Exchange Details</div>
+            <p class="truncate"><strong class="text-navy-900">Email:</strong> <span id="modal-email">Mgamal987.mg@gmail.com</span></p>
+            <p class="truncate"><strong class="text-navy-900">Phone:</strong> <span id="modal-phone">01116699954</span></p>
+            <p class="truncate"><strong class="text-navy-900">Location:</strong> <span id="modal-location">[City, Country]</span></p>
+            <p class="truncate"><strong class="text-navy-900">Profile:</strong> <span id="modal-linkedin">[linkedin.com/in/profile]</span></p>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 text-center leading-relaxed">
+          Innovation Campus &amp; Bistrot South Garage Networking Session • Milan, Italy • November 21–22, 2026
+        </p>
+
+        <div class="grid grid-cols-2 gap-3">
+          <button id="download-vcf-btn" type="button" class="w-full py-2.5 px-4 rounded-xl text-xs font-bold bg-navy-900 hover:bg-navy-800 text-white transition cursor-pointer">
+            Download vCard (.vcf)
+          </button>
+          <button id="modal-copy-btn" type="button" class="w-full py-2.5 px-4 rounded-xl text-xs font-bold bg-electric-500 hover:bg-electric-600 text-white transition cursor-pointer">
+            Copy Info
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const addRoleBtn = document.getElementById('add-role-btn');
+      const timelineContainer = document.getElementById('timeline-container');
+
+      // Toast helper
+      const toastEl = document.getElementById('toast-msg');
+      const toastText = document.getElementById('toast-text');
+      let toastTimeout;
+
+      function showToast(message) {
+        toastText.textContent = message;
+        toastEl.classList.remove('hidden');
+        toastEl.classList.add('flex');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toastEl.classList.add('hidden');
+          toastEl.classList.remove('flex');
+        }, 3200);
+      }
+
+      // 1. Interactive #ISRM26 Scientific Alignment Filter Tabs
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const isrmCards = document.querySelectorAll('.isrm-card');
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const selected = btn.getAttribute('data-tab');
+
+          tabButtons.forEach((b) => {
+            b.classList.remove('bg-navy-900', 'text-white');
+            b.classList.add('bg-slate-100', 'text-slate-700');
+          });
+          btn.classList.remove('bg-slate-100', 'text-slate-700');
+          btn.classList.add('bg-navy-900', 'text-white');
+
+          isrmCards.forEach((card) => {
+            const cat = card.getAttribute('data-category');
+            if (selected === 'all' || cat === selected) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 4b. Interactive Anatomical Region Map & Sub-Division Filter
+      const regionFilterButtons = document.querySelectorAll('.region-filter-btn');
+      const regionHotspots = document.querySelectorAll('.region-hotspot');
+      const regionCards = document.querySelectorAll('.region-card');
+      let activeRegion = 'all';
+
+      function setActiveRegion(region) {
+        activeRegion = region;
+
+        regionFilterButtons.forEach((btn) => {
+          const isMatch = btn.getAttribute('data-region') === region;
+          btn.classList.toggle('bg-navy-900', isMatch);
+          btn.classList.toggle('text-white', isMatch);
+          btn.classList.toggle('bg-slate-100', !isMatch);
+          btn.classList.toggle('text-slate-700', !isMatch);
+        });
+
+        regionHotspots.forEach((node) => {
+          const isMatch = node.getAttribute('data-region') === region;
+          node.classList.toggle('active-hotspot', isMatch);
+          node.style.opacity = region === 'all' || isMatch ? '1' : '0.45';
+        });
+
+        regionCards.forEach((card) => {
+          const cardRegion = card.getAttribute('data-region');
+          const showCard = region === 'all' || cardRegion === region;
+          card.classList.toggle('hidden', !showCard);
+          card.classList.toggle('ring-2', region !== 'all' && cardRegion === region);
+          card.classList.toggle('ring-electric-500', region !== 'all' && cardRegion === region);
+        });
+      }
+
+      regionFilterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          setActiveRegion(btn.getAttribute('data-region'));
+        });
+      });
+
+      regionHotspots.forEach((node) => {
+        node.addEventListener('click', () => {
+          const clicked = node.getAttribute('data-region');
+          setActiveRegion(activeRegion === clicked ? 'all' : clicked);
+        });
+      });
+
+      // 5. Add New Editable Career Role to Timeline
+      addRoleBtn.addEventListener('click', () => {
+        const newRole = document.createElement('div');
+        newRole.className = 'relative pl-6 sm:pl-8';
+        newRole.innerHTML = `
+          <span class="absolute -left-[9px] top-6 h-4 w-4 rounded-full bg-electric-500 ring-4 ring-slate-50"></span>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 print-shadow-none">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 contenteditable="true" class="text-lg font-bold text-navy-900">[Clinical / Consulting Role Title]</h3>
+                <p contenteditable="true" class="text-sm font-semibold text-electric-600">[Organization / Club / Academy] — [City, Country]</p>
+              </div>
+              <span contenteditable="true" class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-navy-900 border border-slate-300 self-start">[Year – Year]</span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li contenteditable="true" class="flex items-start gap-2.5">
+                <span class="text-electric-500 font-bold mt-0.5">▸</span>
+                <span><strong>Key Clinical Achievement:</strong> Describe injury prevention, biomechanical assessment, or RTS KPI outcomes.</span>
+              </li>
+            </ul>
+          </div>
+        `;
+        timelineContainer.appendChild(newRole);
+        showToast('New editable career milestone added.');
+      });
+
+      // 6. Delegate Networking Modal & vCard Export
+      const vcardModal = document.getElementById('vcard-modal');
+      const openVcardBtn = document.getElementById('open-vcard-btn');
+      const footerVcardBtn = document.getElementById('footer-vcard-btn');
+      const closeVcardBtn = document.getElementById('close-vcard-btn');
+      const downloadVcfBtn = document.getElementById('download-vcf-btn');
+      const copyContactBtn = document.getElementById('copy-contact-btn');
+      const modalCopyBtn = document.getElementById('modal-copy-btn');
+
+      function syncDelegateModal() {
+        const name = document.getElementById('hero-name').textContent.trim();
+        const subtitle = document.getElementById('hero-title').textContent.trim();
+        const email = document.getElementById('hero-email').textContent.trim();
+        const phone = document.getElementById('hero-phone').textContent.trim();
+        const location = document.getElementById('hero-location').textContent.trim();
+        const linkedin = document.getElementById('hero-linkedin').textContent.trim();
+
+        document.getElementById('modal-title').textContent = name;
+        document.getElementById('modal-subtitle').textContent = subtitle;
+        document.getElementById('modal-email').textContent = email;
+        document.getElementById('modal-phone').textContent = phone;
+        document.getElementById('modal-location').textContent = location;
+        document.getElementById('modal-linkedin').textContent = linkedin;
+        document.getElementById('footer-name').textContent = name;
+      }
+
+      function openModal() {
+        syncDelegateModal();
+        vcardModal.classList.remove('hidden');
+        vcardModal.classList.add('flex');
+      }
+
+      function closeModal() {
+        vcardModal.classList.add('hidden');
+        vcardModal.classList.remove('flex');
+      }
+
+      openVcardBtn.addEventListener('click', openModal);
+      footerVcardBtn.addEventListener('click', openModal);
+      closeVcardBtn.addEventListener('click', closeModal);
+      vcardModal.addEventListener('click', (e) => {
+        if (e.target === vcardModal) closeModal();
+      });
+
+      // Copy contact text using fallback-safe execCommand
+      function copyDelegateInfo() {
+        syncDelegateModal();
+        const summary = [
+          document.getElementById('hero-name').textContent.trim(),
+          document.getElementById('hero-title').textContent.trim(),
+          `Email: ${document.getElementById('hero-email').textContent.trim()}`,
+          `Phone: ${document.getElementById('hero-phone').textContent.trim()}`,
+          `Location: ${document.getElementById('hero-location').textContent.trim()}`,
+          `Profile: ${document.getElementById('hero-linkedin').textContent.trim()}`,
+          `Event: 3rd International Sports Rehab Meeting (#ISRM26), Milan`
+        ].join('\n');
+
+        const tempArea = document.createElement('textarea');
+        tempArea.value = summary;
+        tempArea.style.position = 'fixed';
+        tempArea.style.left = '-9999px';
+        document.body.appendChild(tempArea);
+        tempArea.select();
+        try {
+          document.execCommand('copy');
+          showToast('Delegate contact details copied to clipboard!');
+        } catch (err) {
+          showToast('Unable to copy automatically — please copy from the card.');
+        }
+        document.body.removeChild(tempArea);
+      }
+
+      copyContactBtn.addEventListener('click', copyDelegateInfo);
+      modalCopyBtn.addEventListener('click', copyDelegateInfo);
+
+      // Download .vcf Contact Card
+      downloadVcfBtn.addEventListener('click', () => {
+        syncDelegateModal();
+        const name = document.getElementById('hero-name').textContent.trim();
+        const title = document.getElementById('hero-title').textContent.trim();
+        const email = document.getElementById('hero-email').textContent.trim();
+        const phone = document.getElementById('hero-phone').textContent.trim();
+        const location = document.getElementById('hero-location').textContent.trim();
+
+        const vcfContent = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `FN:${name}`,
+          `TITLE:${title}`,
+          `TEL;TYPE=WORK,VOICE:${phone}`,
+          `EMAIL;TYPE=PREF,INTERNET:${email}`,
+          `ADR;TYPE=WORK:;;${location};;;;`,
+          'NOTE:Delegate at 3rd International Sports Rehab Meeting (#ISRM26), Milan, Italy',
+          'END:VCARD'
+        ].join('\r\n');
+
+        const blob = new Blob([vcfContent], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ISRM26_Delegate_Contact.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('vCard (.vcf) downloaded for quick phone sharing!');
+      });
+    });
+  </script>
+</body>
+</html>
